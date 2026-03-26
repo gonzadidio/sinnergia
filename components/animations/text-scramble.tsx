@@ -21,8 +21,6 @@ export function TextScramble({
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [displayText, setDisplayText] = useState("");
-  const frameRef = useRef(0);
-
   const scramble = useCallback(() => {
     let iteration = 0;
     const length = text.length;
