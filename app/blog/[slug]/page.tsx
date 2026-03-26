@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-20 pt-10 border-t border-white/10">
               <h3 className="text-xl font-display font-bold text-white mb-8">Articulos relacionados</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {related.map((r) => (
+                {related.map((r: { slug: string; title: string; category: string; reading_time: number }) => (
                   <Link
                     key={r.slug}
                     href={`/blog/${r.slug}`}

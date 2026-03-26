@@ -16,14 +16,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
   ];
 
-  const projectPages: MetadataRoute.Sitemap = (projects || []).map((p) => ({
+  const projectPages: MetadataRoute.Sitemap = (projects || []).map((p: { slug: string; created_at: string }) => ({
     url: `${baseUrl}/portfolio/${p.slug}`,
     lastModified: new Date(p.created_at),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = (posts || []).map((p) => ({
+  const blogPages: MetadataRoute.Sitemap = (posts || []).map((p: { slug: string; created_at: string }) => ({
     url: `${baseUrl}/blog/${p.slug}`,
     lastModified: new Date(p.created_at),
     changeFrequency: "monthly" as const,

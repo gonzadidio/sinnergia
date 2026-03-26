@@ -73,7 +73,7 @@ export default async function AdminDashboard() {
         <div className="glass rounded-2xl overflow-hidden">
           {recentMessages && recentMessages.length > 0 ? (
             <div className="divide-y divide-white/5">
-              {recentMessages.map((msg) => (
+              {recentMessages.map((msg: { id: string; name: string; status: string; email: string; message: string; created_at: string }) => (
                 <div key={msg.id} className="p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
                   <div>
                     <div className="flex items-center gap-3">

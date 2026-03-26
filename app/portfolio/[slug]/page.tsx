@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: Props) {
 
   const allProjects = dbAllProjects?.length ? dbAllProjects : mockProjects.map((p) => ({ slug: p.slug, title: p.title }));
 
-  const currentIndex = allProjects?.findIndex((p) => p.slug === params.slug) ?? -1;
+  const currentIndex = allProjects?.findIndex((p: { slug: string }) => p.slug === params.slug) ?? -1;
   const prevProject = currentIndex > 0 ? allProjects?.[currentIndex - 1] : null;
   const nextProject = currentIndex < (allProjects?.length ?? 0) - 1 ? allProjects?.[currentIndex + 1] : null;
 
